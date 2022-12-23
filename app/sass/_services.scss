@@ -1,0 +1,57 @@
+.services {
+  background-color: $LightGrayishBlue;
+  padding: 36px 17px;
+  @include breakpoint-up($minLarge) {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+  .text {
+    text-align: center;
+    margin-bottom: 30px;
+    @include breakpoint-up($minLarge) {
+      text-align: left;
+      margin-bottom: 50px;
+    }
+    
+    h1 {
+      font-size: 35px;
+      font-weight: 400;
+      color: $DarkBlue;
+    }
+    p {
+      margin-top: -10px;
+      color: $GrayishBlue;
+      line-height: 1.5;
+      @include breakpoint-up($minLarge) {
+        width: 650px;
+      }
+    }
+  }
+  .all-services {
+    display: flex;
+    flex-direction: column;
+    @include breakpoint-up($minLarge) {
+      flex-direction: row;
+    }
+    .service {
+      text-align: center;
+      @include breakpoint-up($minLarge) {
+        width: 35%;
+        text-align: left;
+        margin-right: 15px;
+      }
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+      h3 {
+        color: $DarkBlue;
+        font-weight: 400;
+      }
+      p {
+        color: $GrayishBlue;
+        line-height: 1.5;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,121 @@
+.footer {
+  background-color: $DarkBlue;
+  color: $White;
+  padding: 40px;
+  text-align: center;
+
+  .container {
+    @include breakpoint-up($minLarge) {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 3fr;
+      grid-template-rows: 1fr 10px;
+      grid-template-areas:
+        "logo links1 links2 cta"
+        "social links1 links2 copyright";
+      gap: 15px;
+    }
+  }
+
+  a {
+    color: $White;
+  }
+
+  .logo {
+    display: inline-block;
+    @include breakpoint-down($maxMedium) {
+      margin-bottom: 28px;
+    }
+
+    @include breakpoint-up($minLarge) {
+      grid-area: logo;
+    }
+  }
+
+  .social {
+    @include breakpoint-down($maxLarge) {
+      margin-bottom: 28px;
+    }
+
+    @include breakpoint-up($minLarge) {
+      grid-area: social;
+      align-self: end;
+    }
+    a {
+      display: inline-block;
+      height: 18px;
+
+      svg path {
+        transition: fill 0.2s ease-in-out;
+      }
+
+      &:hover svg path {
+        fill: $LimeGreen;
+      }
+    }
+
+    a:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 15px;
+
+    @include breakpoint-up($minLarge) {
+      justify-content: space-between;
+      align-items: start;
+    }
+    .col1 {
+      @include breakpoint-up($minLarge) {
+        grid-area: links1;
+      }
+    }
+
+    .col2 {
+      @include breakpoint-down($maxMedium) {
+        margin-bottom: 28px;
+      }
+      @include breakpoint-up($minLarge) {
+        grid-area: links2;
+      }
+    }
+
+    a {
+      line-height: 2.25;
+      transition: color 0.2s ease-in-out;
+      &:hover {
+        color: $LimeGreen;
+      }
+    }
+  }
+
+  .cta {
+    @include breakpoint-up($minLarge) {
+      grid-area: cta;
+      text-align: right;
+      justify-self: end;
+    }
+
+    button {
+      @include breakpoint-down($maxMedium) {
+        text-align: center;
+        margin: 28px 0;
+      }
+    }
+  }
+
+  .copyright {
+    font-size: 14px;
+    color: $GrayishBlue;
+
+    @include breakpoint-up($minLarge) {
+      grid-area: copyright;
+      align-self: end;
+      justify-self: end;
+      margin-bottom: 40px;
+    }
+  }
+}
